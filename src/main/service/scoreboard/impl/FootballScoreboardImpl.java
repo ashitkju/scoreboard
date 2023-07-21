@@ -16,6 +16,9 @@ import static main.constants.MessageConstant.MATCH_FINISHED;
 import static main.constants.MessageConstant.MATCH_NOT_FOUND;
 import static main.constants.MessageConstant.SCORE_UPDATED;;
 
+/**
+ * Football game specific implementation.
+ */
 public class FootballScoreboardImpl implements FootballScoreboard {
     private final Map<Long, FootballMatch> datastore;
     private final List<FootballMatch> history;
@@ -27,6 +30,9 @@ public class FootballScoreboardImpl implements FootballScoreboard {
         this.sortFunction = sortFunction;
     }
 
+    /**
+     * Starts a match by recording the teams in the datastore with initial scores as 0 each.
+     */
     @Override
     public long startMatch(String homeTeamName, String awayTeamName) {
         if (homeTeamName == null || awayTeamName == null || (homeTeamName != null && homeTeamName.isBlank()) ||
@@ -38,6 +44,9 @@ public class FootballScoreboardImpl implements FootballScoreboard {
         return uniqueId;
     }
 
+    /**
+     * Updates the score of teams respectively.
+     */
     @Override
     public String updateScore(long matchId, int homeTeamScore, int awayTeamScore) {
         var match = datastore.get(matchId);
@@ -50,6 +59,9 @@ public class FootballScoreboardImpl implements FootballScoreboard {
         return SCORE_UPDATED;
     }
 
+    /**
+     * finish the match and takes a backup of the finished map as a history.
+     */
     @Override
     public String finishMatch(long matchId) {
         var match = datastore.get(matchId);
@@ -60,6 +72,9 @@ public class FootballScoreboardImpl implements FootballScoreboard {
         return MATCH_FINISHED;
     }
 
+    /**
+     * show the scoreboard of the match sorted in specific order.
+     */
     @Override
     public List<FootballMatch> showScoreBoard() {
         return datastore.values().stream().sorted(sortFunction::compare).collect(Collectors.toList());

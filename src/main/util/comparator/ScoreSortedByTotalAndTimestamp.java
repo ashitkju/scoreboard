@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import main.model.impl.FootballMatch;
 
+/**
+ * One kind of implemention of comparator to sort the scoreboard based on total score & match start time.
+ */
 public class ScoreSortedByTotalAndTimestamp implements Comparator<FootballMatch> {
 
     @Override

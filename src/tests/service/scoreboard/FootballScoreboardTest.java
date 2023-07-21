@@ -123,11 +123,6 @@ public class FootballScoreboardTest {
         footballScoreboard.updateScore(u, 6, 6);
         footballScoreboard.updateScore(a, 3, 1);
         footballScoreboard.updateScore(i, 8, 4);
-
-
-        //footballScoreboard.showScoreBoard().forEach(System.out::println);
-        
-        
         var ids = footballScoreboard.showScoreBoard().stream().map(ob -> ob.getId()).collect(Collectors.toList()).toArray(Long[]::new);
         Assert.assertArrayEquals(List.of(i,u,s,m,a,g).toArray(Long[]::new), ids);
     }

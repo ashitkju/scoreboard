@@ -1,18 +1,17 @@
-## Getting Started
+## Scoreboard App
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Following the guidelines I created a Simple java application which is a vs code project.
 
-## Folder Structure
+3rdParty Libraries used -> Junits and Lombok
 
-The workspace contains two folders by default, where:
+The Project mainly provides two classes which will come handy
+1. FootballScoreboardImpl.java
+    This class is an implementation of ScoreBoard.java and it provides several methods to perform the actions which were mentioned in the problem statement. We can implement ScoreBoard.java to create scoreboard for other games as well.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+2. ScoreSortedByTotalAndTimestamp.java
+    This class is a simple custom implementatio of Comparator to sort the scoreboard in a specified order. I chose to keep it separate to it gives flexibility to implement more sorting alogorithms freely.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Following TDD approach i wrote the test cases for the Service class before the actual implementation. You can run the tests to see the solution working correctly.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Final note
+As mentioned in the problem statement, i tried to keep it as simple as possible. No fancy maven/gradle or spring boot project. Just to the point implementation. Do let me know any valuable feedback on my solution.
